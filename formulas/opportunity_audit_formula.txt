@@ -1,0 +1,10 @@
+TRIM(
+  SUBSTITUTE(
+    IF(ISCHANGED({!$Record.Name}), "【商談名】" & {!$Record__Prior.Name} & " → " & {!$Record.Name} & "|", "") &
+    IF(ISCHANGED({!$Record.Amount}), "【金額】" & TEXT({!$Record__Prior.Amount}) & " → " & TEXT({!$Record.Amount}) & "|", "") &
+    IF(ISCHANGED({!$Record.CloseDate}), "【完了予定日】" & TEXT({!$Record__Prior.CloseDate}) & " → " & TEXT({!$Record.CloseDate}) & "|", "") &
+    IF(ISCHANGED({!$Record.StageName}), "【フェーズ】" & TEXT({!$Record__Prior.StageName}) & " → " & TEXT({!$Record.StageName}) & "|", ""),
+    "|",
+    BR()
+  )
+)
